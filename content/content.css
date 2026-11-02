@@ -1,0 +1,125 @@
+/* YouTube Video Dark Mode - Content Styles */
+
+/* Smooth filter transition on the video element */
+video.html5-main-video {
+  transition: filter 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* In-Player Control Bar Button */
+.ytp-button.yt-dark-mode-btn {
+  position: relative;
+  width: 46px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.yt-dark-mode-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  transition: fill 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.yt-dark-mode-btn:hover svg {
+  fill: #f1f1f1;
+  transform: scale(1.08);
+}
+
+/* Active State */
+.yt-dark-mode-btn.ytdm-active svg {
+  fill: #38bdf8;
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
+}
+
+.yt-dark-mode-btn.ytdm-active .yt-dark-mode-active-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Active Indicator dot under the icon */
+.yt-dark-mode-active-indicator {
+  position: absolute;
+  bottom: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+/* Custom Tooltip */
+.yt-dark-mode-tooltip {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: rgba(28, 28, 28, 0.95);
+  color: #fff;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 99999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.yt-dark-mode-btn:hover .yt-dark-mode-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* On-screen quick indicator banner (shows briefly when toggled via hotkey) */
+.yt-dark-toast {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.yt-dark-toast.yt-dark-toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.yt-dark-toast svg {
+  width: 18px;
+  height: 18px;
+}
+
